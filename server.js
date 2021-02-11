@@ -20,7 +20,7 @@ app.use(function validateBearerToken(req,res,next) {
     console.log('validate bearer token middleware')
 
     const bearerToken=req.get('Authorization')
-    const apiToken = process.env.API_TOKEN
+    const apiToken = process.env.API_TOKEN.split(" ")[1]
 
     if(bearerToken !== apiToken){
         return res.status(401).json({error: 'Unauthorized request'})
