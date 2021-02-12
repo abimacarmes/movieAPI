@@ -19,10 +19,10 @@ app.use(cors());
 app.use(function validateBearerToken(req,res,next) {
     console.log('validate bearer token middleware')
 
-    const bearerToken=req.get('Authorization').split(" ")[1]
+    const bearerToken=req.get('Authorization')
     const apiToken = process.env.API_TOKEN
 
-    if(bearerToken !== apiToken){
+    if(bearerToken.split(" ")[1] !== apiToken){
         return res.status(401).json({error: 'Unauthorized request'})
     }
 
