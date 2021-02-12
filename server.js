@@ -68,7 +68,7 @@ app.use((error, req, res, next)=> {
     res.status(500).json(response)
 })
 
-app.get('/movies', handleGetMovie);
+app.get('/movie', handleGetMovie);
 
 const PORT = process.env.PORT || 8000;
 
